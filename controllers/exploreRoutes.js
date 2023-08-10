@@ -4,20 +4,17 @@ const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
   try {
-    const friends = await User.findAll({
-      where: {
-        id: req.session.user_id
-      },
-      attributes: {
-        friend_id
-      },
-    });
-
     const postData = await Post.findAll({
-      where: {
-        user_id: friend_id
-      }
-    })
+      include: [
+        {
+          model: User,
+          attributes: ['username'],
+        },
+        {
+          model: Comment,
+        }
+      ],
+    });
 
     const posts = postData.map((post) => post.get({ plain: true }));
 
