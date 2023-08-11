@@ -1,0 +1,53 @@
+/* Home.css */
+
+/* Styling for the entire container */
+.home-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    background-color: #f7f7f7;
+  }
+  
+  /* Styling for the header section */
+  header {
+    margin-bottom: 20px;
+  }
+  
+  header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for the main section */
+  section {
+    margin-bottom: 30px;
+  }
+  
+  section p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+  }
+  
+  .get-started-button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .get-started-button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Styling for the footer section */
+  footer {
+    font-size: 0.8rem;
+    color: #777;
+  }
+  
