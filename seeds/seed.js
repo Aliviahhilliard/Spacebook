@@ -1,8 +1,8 @@
 const sequelize = require('../config/connection');
-const { User, Post, Comment } = require('../models');
+const { User, Thread, Comment } = require('../models');
 
 const userData = require('./userData.json');
-const postData = require('./postData.json');
+const threadData = require('./threadData.json');
 const commentData = require('./commentData.json');
 
 const seedDatabase = async () => {
@@ -13,9 +13,9 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  for (const post of postData) {
-    await Post.create({
-      ...post,
+  for (const thread of threadData) {
+    await Thread.create({
+      ...thread,
     });
   }
 
