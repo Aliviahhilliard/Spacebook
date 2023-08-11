@@ -1,0 +1,17 @@
+[
+    {
+      "username": "Marvin",
+      "email": "marvin@martianmail.com",
+      "password": "password12345"
+    },
+    {
+      "username": "Sam",
+      "email": "sam@galaxymail.com",
+      "password": "password12345"
+    },
+    {
+      "username": "Elliot",
+      "email": "elliot@earthmail.com",
+      "password": "password12345"
+    }
+]
