@@ -27,22 +27,14 @@ router.get('/', async (req, res) => {
       ],
     });
 
-    const user = userData.map((thread) => thread.get({ plain: true }));
+    const homepageData = userData.map((thread) => thread.get({ plain: true }));
 
-    console.log(user[0].friends[0].threads);
-
-    var friendThreads = []
-
-      for(let i=0; i<user[0].friends.length; i++) {
-        friendThreads = friendThreads.concat(user[0].friends[i].threads)
-        console.log(friendThreads);
-      };
-
+//handlebars {{if homepageData.friends.threads.length}}
+// {{each homepageData.friends.threads as |thread|}} then reference post for display data
     res.render('homepage', { 
-      friendThreads, 
+      homepageData, 
       logged_in: req.session.logged_in 
     });
-    // res.status(200).json(friendThreads)
   } catch (err) {
     res.status(500).json(err);
   }
@@ -61,11 +53,12 @@ router.get('/explore', async (req, res) => {
 
     const threads = threadData.map((thread) => thread.get({ plain: true }));
 
+//handlebars {{if threads.length}}
+//{{each threads as |thread|}}
     res.render('homepage', { 
       threads, 
       logged_in: req.session.logged_in 
     });
-    // res.status(200).json(threads);
   } catch (err) {
     res.status(500).json(err);
   }
@@ -97,7 +90,6 @@ router.get('/thread/:id', async (req, res) => {
       ...thread,
       logged_in: req.session.logged_in
     });
-    // res.status(200).json(thread)
   } catch (err) {
     res.status(500).json(err);
   }
