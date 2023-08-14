@@ -26,10 +26,10 @@ Comment.init(
         key: 'id',
       },
     },
-    post_id: {
+    thread_id: {
         type: DataTypes.INTEGER,
         references: {
-            model: 'post',
+            model: 'thread',
             key: 'id'
         },
     },
@@ -39,7 +39,7 @@ Comment.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'post',
+    modelName: 'comment',
   }
 );
 
