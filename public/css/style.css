@@ -16,6 +16,16 @@ body {
   background-color: #f5f5f5;
 }
 
+/* Default font style */
+.font-default {
+  font-family: Arial, sans-serif;
+}
+
+/* Wingdings font style */
+.font-wingdings {
+  font-family: Wingdings, sans-serif;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;

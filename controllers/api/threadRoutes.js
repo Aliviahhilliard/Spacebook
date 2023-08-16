@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Thread } = require('../../models');
+const { Thread, User, Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
@@ -22,8 +22,8 @@ router.put('/:id', withAuth, async (req, res) => {
       user_id: req.session.user_id,
     },
       {
-        where: {id: req.params.id}
-    });
+        where: { id: req.params.id }
+      });
 
     res.status(200).json(updatedThread);
   } catch (err) {
@@ -50,5 +50,28 @@ router.delete('/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+
+router.get('/:id', async (req, res) => {
+  try {
+    const threadData = await Thread.findByPk(req.params.id, {
+      include: [
+        { model: User },
+        { model: Comment, include: { model: User } }
+      ]
+    });
+
+    if (!threadData) {
+      res.status(404).json({ message: 'No thread found with this id' });
+      return;
+    }
+
+    const thread = threadData.get({ plain: true });
+
+    res.render('view-thread', { layout: 'main', ...thread });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 
 module.exports = router;

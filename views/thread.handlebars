@@ -1,10 +1,19 @@
-<!-- thread.handlebars -->
-<h2>Thread: {{title}}</h2>
-<p>Posted by: {{user.username}}</p>
-{{!-- Loop through each comment --}}
-{{#each comments}}
-<div>
-    <p>Comment by: {{user.username}}</p>
+<main class="container">
+    <h2>{{title}}</h2>
     <p>{{content}}</p>
-</div>
-{{/each}}
+
+    <h3>Comments</h3>
+    <ul class="comment-list">
+        {{#each comments}}
+        <li>{{user.username}}: {{content}}</li>
+        {{/each}}
+    </ul>
+
+    <form class="comment-form">
+        <textarea class="comment-input" name="content" rows="4" placeholder="Add a comment"></textarea>
+        <input type="hidden" name="thread_id" value="{{id}}">
+        <button class="comment-button" type="submit">Submit Comment</button>
+    </form>
+</main>
+
+<script src="/js/comment.js"></script>

@@ -1,25 +1,26 @@
-{{!-- <!-- explore.handlebars -->
-<h2>Explore Threads</h2>
-{{!-- Check if there are threads to display --}}
-{{#if threads.length}}
-{{!-- Loop through each thread --}}
-{{#each threads}}
-<div>
-  <p>Thread Title: {{title}}</p>
-  <p>Posted by: {{user.username}}</p>
-</div>
-{{/each}}
-{{else}}
-<p>No threads to display.</p>
-{{/if}} --}}
 <main class="container">
   <h2>Explore</h2>
-  <div class="post-list">
-    {{#each randomPosts}}
-    <div class="post">
-      <h3>{{User.username}}</h3>
-      <p>{{content}}</p>
-    </div>
+  <ul>
+    {{#each users}}
+    <li>
+      <h3>{{username}}</h3>
+      <p>{{email}}</p>
+      <button class="add-friend-button" data-user-id="{{id}}">Add Friend</button>
+    </li>
     {{/each}}
-  </div>
+    <main class="container">
+      <h2>Explore</h2>
+      <ul>
+        {{#each threads}}
+        <li>
+          <a href="/thread/{{id}}">
+            <h3>{{user.username}}'s Post</h3>
+            <p>{{content}}</p>
+            <button class="add-friend-button" data-user-id="{{id}}">Add Friend</button>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </main>
+  </ul>
 </main>

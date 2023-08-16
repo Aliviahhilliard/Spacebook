@@ -29,40 +29,40 @@ router.get('/', async (req, res) => {
 
     const homepageData = userData.map((thread) => thread.get({ plain: true }));
 
-//handlebars {{if homepageData.friends.threads.length}}
-// {{each homepageData.friends.threads as |thread|}} then reference post for display data
-    res.render('homepage', { 
-      homepageData, 
-      logged_in: req.session.logged_in 
+    //handlebars {{if homepageData.friends.threads.length}}
+    // {{each homepageData.friends.threads as |thread|}} then reference post for display data
+    res.render('homepage', {
+      homepageData,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/explore', async (req, res) => {
-  try {
-    const threadData = await Thread.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['username'],
-        },
-      ],
-    });
+// router.get('/explore', async (req, res) => {
+//   try {
+//     const threadData = await Thread.findAll({
+//       include: [
+//         {
+//           model: User,
+//           attributes: ['username'],
+//         },
+//       ],
+//     });
 
-    const threads = threadData.map((thread) => thread.get({ plain: true }));
+//     const threads = threadData.map((thread) => thread.get({ plain: true }));
 
-//handlebars {{if threads.length}}
-//{{each threads as |thread|}}
-    res.render('homepage', { 
-      threads, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     //handlebars {{if threads.length}}
+//     //{{each threads as |thread|}}
+//     res.render('homepage', {
+//       threads,
+//       logged_in: req.session.logged_in
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get('/thread/:id', async (req, res) => {
   try {

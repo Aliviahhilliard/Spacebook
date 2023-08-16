@@ -1,5 +1,5 @@
 const User = require('./User');
-const FriendConnect =  require('./FriendConnect');
+const FriendConnect = require('./FriendConnect');
 const Thread = require('./Thread');
 const Comment = require('./Comment');
 
