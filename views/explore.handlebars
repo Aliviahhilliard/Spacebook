@@ -1,0 +1,26 @@
+<main class="container">
+  <h2>Explore</h2>
+  <ul>
+    {{#each users}}
+    <li>
+      <h3>{{username}}</h3>
+      <p>{{email}}</p>
+      <button class="add-friend-button" data-user-id="{{id}}">Add Friend</button>
+    </li>
+    {{/each}}
+    <main class="container">
+      <h2>Explore</h2>
+      <ul>
+        {{#each threads}}
+        <li>
+          <a href="/thread/{{id}}">
+            <h3>{{user.username}}'s Post</h3>
+            <p>{{content}}</p>
+            <button class="add-friend-button" data-user-id="{{id}}">Add Friend</button>
+          </a>
+        </li>
+        {{/each}}
+      </ul>
+    </main>
+  </ul>
+</main>

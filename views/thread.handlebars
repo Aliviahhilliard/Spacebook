@@ -1,0 +1,19 @@
+<main class="container">
+    <h2>{{title}}</h2>
+    <p class="font-wingdings">{{content}}</p>
+
+    <h3>Comments</h3>
+    <ul class="comment-list">
+        {{#each comments}}
+        <li class="font-wingdings">{{user.username}}: {{content}}</li>
+        {{/each}}
+    </ul>
+
+    <form class="comment-form">
+        <textarea class="comment-input" name="content" rows="4" placeholder="Add a comment"></textarea>
+        <input type="hidden" name="thread_id" value="{{id}}">
+        <button class="comment-button" type="submit">Submit Comment</button>
+    </form>
+</main>
+
+<script src="/js/comment.js"></script>

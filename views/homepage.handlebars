@@ -1,0 +1,46 @@
+<!-- homepage.handlebars -->
+{{#if logged_in}}
+<h2>Welcome to Your Homepage</h2>
+
+{{#if homepageData.friends.length}}
+<h3>Your Friends' Threads</h3>
+<ul>
+  {{#each homepageData.friends as |friend|}}
+  <li>
+    <h4>{{friend.username}}</h4>
+    {{#if friend.threads.length}}
+    <ul>
+      {{#each friend.threads as |thread|}}
+      <li>
+        <h5>{{thread.title}}</h5>
+        <p>{{thread.content}}</p>
+        <a href="/thread/{{thread.id}}">View Thread</a>
+      </li>
+      {{/each}}
+    </ul>
+    {{else}}
+    <p>No threads from this friend.</p>
+    {{/if}}
+  </li>
+  {{/each}}
+</ul>
+{{else}}
+<p>You have no friends or your friends have no threads.</p>
+{{/if}}
+{{!-- Check if homepageData has friends and threads --}}
+{{#if homepageData.friends.length}}
+<h2>My Friends' Threads</h2>
+{{!-- Loop through each friend's threads --}}
+{{#each homepageData.friends as |friend|}}
+<h3>{{friend.username}}</h3>
+{{#each friend.threads as |thread|}}
+<div>
+  <p>Thread Title: {{thread.title}}</p>
+  <p>Posted by: {{thread.user.username}}</p>
+</div>
+{{/each}}
+{{/each}}
+{{else}}
+<p>No friend's threads to display.</p>
+{{/if}}
+{{/if}}

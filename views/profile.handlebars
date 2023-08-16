@@ -1,0 +1,17 @@
+<!-- profile.handlebars -->
+<main class="container">
+    <h2>Welcome, {{ username}}!</h2>
+
+    <h3>Your Threads:</h3>
+    <ul>
+        {{#each threads}}
+        <li>
+            <h4>{{title}}</h4>
+            <p class="font-wingdings">{{content}}</p>
+            <a href="/thread/{{id}}" class="btn btn-primary">View Thread</a>
+        </li>
+        {{/each}}
+    </ul>
+</main>
+
+<a href="/api/users/profile/create-thread">Create Thread</a>
