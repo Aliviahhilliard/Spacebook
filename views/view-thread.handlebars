@@ -1,6 +1,6 @@
 <<main class="container">
     <h2>{{title}}</h2>
-    <p class="wingdings-font">{{content}}</p>
+    <p class="font-wingdings">{{content}}</p>
 
     <!-- Toggle font button for thread content -->
     <button class="toggle-font-button" data-content-type="thread">Toggle Font</button>
@@ -9,7 +9,7 @@
     <ul class="comment-list">
         {{#each comments}}
         <li>
-            <span class="wingdings-font">{{User.username}}:</span> {{content}}
+            <span class="font-wingdings">{{User.username}}:</span> {{content}}
             <!-- Toggle font button for comment -->
             <button class="toggle-font-button" data-content-type="comment">Toggle Font</button>
         </li>
