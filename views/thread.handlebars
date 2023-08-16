@@ -1,0 +1,10 @@
+<!-- thread.handlebars -->
+<h2>Thread: {{title}}</h2>
+<p>Posted by: {{user.username}}</p>
+{{!-- Loop through each comment --}}
+{{#each comments}}
+<div>
+    <p>Comment by: {{user.username}}</p>
+    <p>{{content}}</p>
+</div>
+{{/each}}

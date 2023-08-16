@@ -1,0 +1,32 @@
+<div class="edit-profile-container">
+  <header>
+    <h1>Edit Your Profile</h1>
+  </header>
+  <form>
+    <label for="username">Username</label>
+    <input
+      type="text"
+      id="username"
+      name="username"
+      value="{{ userProfile.username }}"
+    />
+
+    <label for="email">Email</label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      value="{{ userProfile.email }}"
+    />
+
+    <label for="bio">Bio</label>
+    <textarea
+      id="bio"
+      name="bio"
+    >{{ userProfile.bio }}</textarea>
+
+    <!-- Add more input fields for other profile data -->
+    
+    <button class="save-button" type="submit">Save Changes</button>
+  </form>
+</div>
