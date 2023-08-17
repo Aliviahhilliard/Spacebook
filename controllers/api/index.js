@@ -5,9 +5,7 @@ const commentRoutes = require('./commentRoutes');
 const signupRoutes = require('./signupRoutes');
 const exploreRoutes = require('./exploreRoutes');
 
-const friendRoutes = require('./friendRoutes'); // Adjust the path if needed
-
-// ...
+const friendRoutes = require('./friendRoutes');
 
 
 
