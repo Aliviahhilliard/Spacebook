@@ -1,11 +1,20 @@
 # Spacebook
-A group of four take on the monumental task of creating a full stack project that goes lightyears beyond their normal developer days. Through adding files, committing code, and repeatedly staring at the computer in frustration, these brave souls create the greatest intergalactic social media of all time. I give you.  Spacebook. TM, TM.  
 
-Project Requirements
+## Description
 
-You and your group will use everything you’ve learned over the past six modules to create a real-world full-stack application that you’ll be able to showcase to potential employers. 
+Alien Social Network: Introducing an extraterrestrial social network platform where aliens share intergalactic journeys and favorite Earth encounters. Our unique twist: an integrated translator to convert alien languages to English, bridging interstellar communication gaps.
 
-The user story and acceptance criteria will depend on the project that you create, but your project must fulfil the following requirements:
+![Project Screenshot](link-to-your-screenshot.png)
+
+[Link to Deployed Application on Heroku](your-heroku-link)
+
+## User Story
+
+AS AN alien user
+I WANT an intergalactic social media app with an english translator built in
+SO THAT I can post pictures, stories, and engage through likes, comments, and shares
+
+## Acceptance Criteria
 
 * Use Node.js and Express.js to create a RESTful API.
 * Use Handlebars.js as the template engine.
@@ -21,3 +30,51 @@ The user story and acceptance criteria will depend on the project that you creat
 * Be interactive (i.e., accept and respond to user input).
 * Meet good-quality coding standards (file structure, naming conventions, follows best practices for class/id naming conventions, indentation, quality comments, etc.).
 * Have a professional README (with unique name, description, technologies used, screenshot, and link to deployed application).
+
+## Technologies Used
+
+* Node.js
+* Express.js
+* Handlebars.js
+* MySQL
+* Sequelize ORM
+
+## Features
+
+* WHEN a user signs up,
+* THEN they can create and personalize their profile.
+* WHEN a user selects their profile picture,
+* THEN a picture generates for them.
+* WHEN a user adds a friend,
+* THEN they can view and engage with that friend's content.
+* WHEN a user posts content,
+* THEN it appears on their timeline for friends to interact with.
+* WHEN a user clicks on the translate button,
+* THEN the text will translate from alien text to English and vice versa.
+
+## Installation
+
+1. Clone the repository
+2. Navigate to the directory and run `npm install`
+3. Set up your environment variables for database connection and any other sensitive data.
+4. Use the schema.sql in the db folder to set up your database in MySQL.
+5. Run `npm start` to start the server.
+
+## Contribution
+
+This project is made by Elijah Francis, Luken Hoffman, Jake Mckitrick, Aliviah Hilliard. Contributions are welcome. Fork the repository, make your changes, and then submit a pull request.
+
+## Authors
+
+* [@MCKITT77](https://github.com/MCKIT77)
+* [@ElijahAFrancis](https://github.com/ElijahAFrancis)
+* [@Aliviahhilliard](https://github.com/Aliviahhilliard)
+* [@lukenhoffman](https://github.com/lukenhoffman)
+
+## License
+
+This project uses the [MIT](https://choosealicense.com/licenses/mit/) license.
+
+---
+
+Thank you for checking out our project! Feel free to contact us for any feedback or questions.
