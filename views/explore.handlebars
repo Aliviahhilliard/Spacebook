@@ -3,24 +3,27 @@
   <ul>
     {{#each users}}
     <li>
-      <h3>{{username}}</h3>
-      <p>{{email}}</p>
-      <button class="add-friend-button" data-user-id="{{id}}">Add Friend</button>
+
+      <h3 class="font-wingdings">{{username}}</h3>
+      <p class="font-wingdings">{{email}}</p>
+      <button class="font-wingdings add-friend-button" data-user-id="{{id}}">Add Friend</button>
     </li>
     {{/each}}
     <main class="container">
-      <h2>Explore</h2>
+      <button class="toggle-font-button" data-content-type="all">Translate All</button>
+
       <ul>
         {{#each threads}}
         <li>
           <a href="/thread/{{id}}">
-            <h3>{{user.username}}'s Post</h3>
-            <p>{{content}}</p>
-            <button class="add-friend-button" data-user-id="{{id}}">Add Friend</button>
+            <h3 class="font-wingdings">{{user.username}}'s Post</h3>
+            <p class="font-wingdings">{{content}}</p>
+            <button class="font-wingdings add-friend-button" data-user-id="{{id}}">Add Friend</button>
           </a>
         </li>
         {{/each}}
       </ul>
     </main>
   </ul>
+  <script src="/js/toggle-font.js"></script>
 </main>

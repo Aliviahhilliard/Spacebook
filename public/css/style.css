@@ -11,53 +11,69 @@ li {
   padding: 0;
 }
 
+a {
+  color: #00ff00;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-image: url('/img/casey-horner-RmoWqDCqN2E-unsplash.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #000;
+  color: #00ff00;
 }
 
-/* Default font style */
-.font-default {
-  font-family: Arial, sans-serif;
+/* Header styling */
+.header {
+  background-color: #222222;
+  /* Slightly darker header background */
+  color: #00ff00;
+  /* Green header text color */
+  padding: 10px 0;
+  text-align: center;
 }
 
-/* Wingdings font style */
-.font-wingdings {
-  font-family: Wingdings, sans-serif;
+/* Navbar styling */
+.navbar {
+  background-color: transparent;
+  /* Transparent navbar background */
+  padding: 10px 0;
+  text-align: center;
 }
 
+.navbar a {
+  color: #00ff00;
+  /* Green link color */
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s;
+  /* Smooth transition for link color */
+}
+
+.navbar a:hover {
+  color: #66cc33;
+  /* Light green on hover */
+}
+
+/* Container styling */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 20px;
 }
 
-.header {
-  background-color: #333;
-  color: #fff;
-  padding: 10px 0;
-  text-align: center;
-}
-
-.navbar {
-  background-color: #444;
-  padding: 10px 0;
-  text-align: center;
-}
-
-.navbar a {
-  color: #fff;
-  text-decoration: none;
-  margin: 0 10px;
-}
-
+/* Content styling */
 .content {
   padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #222222;
+  /* Dark gray content background */
+  border: 1px solid #00ff00;
+  /* Green border */
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.1);
 }
 
+/* Form styling */
 .form-group {
   margin-bottom: 15px;
 }
@@ -66,69 +82,60 @@ body {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #00ff00;
+  /* Green label color */
 }
 
 .form-input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
+  border: 1px solid #00ff00;
   border-radius: 4px;
   font-size: 16px;
+  background-color: transparent;
+  /* Transparent input background */
+  color: #00ff00;
+  /* Green text color */
 }
 
 .form-button {
   display: block;
   width: 100%;
   padding: 10px;
-  background-color: #333;
-  color: #fff;
+  background-color: #111111;
+  /* Dark gray button background */
+  color: #00ff00;
+  /* Green button text color */
   border: none;
   border-radius: 4px;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s;
+  /* Smooth transition for button color */
 }
 
 .form-button:hover {
-  background-color: #555;
+  background-color: #66cc33;
+  /* Light green on hover */
 }
 
-/* Additional custom styles */
-
-/* Styling for buttons */
-
+/* Button styling */
 .button-primary {
-  background-color: #007bff;
+  background-color: #00ff00;
+  /* Green button background */
+  color: #000000;
+  /* Black button text color */
 }
 
 .button-secondary {
-  background-color: #6c757d;
-}
-
-/* Styling for forms */
-
-.form-container {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.form-title {
-  text-align: center;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.form-input,
-.form-button {
-  margin-bottom: 15px;
+  background-color: #111111;
+  /* Dark gray button background */
+  color: #00ff00;
+  /* Green button text color */
+  border: 1px solid #00ff00;
 }
 
 /* Styling for alerts */
-
 .alert {
   padding: 10px;
   margin-bottom: 20px;
@@ -136,11 +143,53 @@ body {
 }
 
 .alert-success {
-  background-color: #d4edda;
-  color: #155724;
+  background-color: #222222;
+  /* Dark gray alert background */
+  color: #00ff00;
+  /* Green alert text color */
 }
 
 .alert-danger {
-  background-color: #f8d7da;
-  color: #721c24;
+  background-color: #440000;
+  /* Dark red alert background */
+  color: #ff0000;
+  /* Red alert text color */
+}
+
+/* Alien-themed fonts */
+.font-default {
+  font-family: "Arial", sans-serif;
+}
+
+.font-wingdings {
+  font-family: "Wingdings", sans-serif;
+}
+
+/* Add styling for the "Translate All" button */
+.translate-all-button {
+  display: block;
+  margin-bottom: 10px;
+  background-color: #111111;
+  /* Dark gray button background */
+  color: #00ff00;
+  /* Green button text color */
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  /* Smooth transition for button color */
+}
+
+.translate-all-button:hover {
+  background-color: #66cc33;
+  /* Light green on hover */
+}
+
+/* Add styling for translated content */
+.font-wingdings .thread-content,
+.font-wingdings .comment-content {
+  font-family: "Wingdings", sans-serif;
+  color: #00ff00;
+  /* Green font color */
 }

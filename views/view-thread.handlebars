@@ -1,19 +1,18 @@
-<<main class="container">
-    <h2>{{title}}</h2>
-    <p class="font-wingdings">{{content}}</p>
-
+<main class="container">
+    <button class="toggle-font-button" data-content-type="all">Translate All</button>
+    <h2 class="font-wingdings">{{title}}</h2>
+    <p class="thread-content {{defaultFontClass}}">{{content}}</p>
+    1
     <!-- Toggle font button for thread content -->
-    <button class="toggle-font-button" data-content-type="thread">Toggle Font</button>
 
-    <h3>Comments</h3>
+    <h3 class="font-wingdings">Comments</h3>
     <ul class="comment-list">
         {{#each comments}}
         <li>
-            <span class="font-wingdings">{{User.username}}:</span> {{content}}
+            {{User.username}}: <span class="comment-content {{defaultFontClass}}">{{content}}</span>
             <!-- Toggle font button for comment -->
-            <button class="toggle-font-button" data-content-type="comment">Toggle Font</button>
         </li>
         {{/each}}
     </ul>
     <script src="/js/toggle-font.js"></script>
-    </main>
+</main>

@@ -1,11 +1,14 @@
 <main class="container">
-    <h2>{{title}}</h2>
+    <h2 class="font-wingdings">{{title}}</h2>
     <p class="font-wingdings">{{content}}</p>
 
-    <h3>Comments</h3>
+    <button class="toggle-font-button" data-content-type="all">Translate All</button>
+
+    <h3 class="font-wingdings">Comments</h3>
     <ul class="comment-list">
         {{#each comments}}
-        <li class="font-wingdings">{{user.username}}: {{content}}</li>
+        <li class="font-wingdings">{{user.username}}: {{content}}
+        </li>
         {{/each}}
     </ul>
 
@@ -17,3 +20,4 @@
 </main>
 
 <script src="/js/comment.js"></script>
+<script src="/js/toggle-font.js"></script>
