@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const fs = require("fs");
-const { Image } = require("../../models")
+const { Img } = require("../../models")
 
 router.post('/', async (req, res) => {
   try {
@@ -10,7 +10,7 @@ router.post('/', async (req, res) => {
       return res.send(`No file selected`);
     }
 //req should include image file
-    Image.create({
+    Img.create({
       type: req.file.mimetype,
       name: req.file.originalname,
       data: fs.readFileSync("../../assets/uploads/" + req.file.filename),

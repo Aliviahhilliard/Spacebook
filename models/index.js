@@ -1,5 +1,5 @@
 const User = require('./User');
-const Image = require('./Image')
+const Img = require('./Img')
 const FriendConnect = require('./FriendConnect');
 const Thread = require('./Thread');
 const Comment = require('./Comment');
@@ -21,11 +21,11 @@ User.belongsToMany(User, {
     otherKey: 'friend_id',
 });
 
-User.hasOne(Image, {
+User.hasOne(Img, {
     foreignKey: 'user_id',
 });
 
-Image.belongsTo(User, {
+Img.belongsTo(User, {
     foreignKey: 'user_id'
 })
 
@@ -44,4 +44,4 @@ Comment.belongsTo(User, {
     foreignKey: 'user_id'
 });
 
-module.exports = { User, Image, FriendConnect, Thread, Comment, }
+module.exports = { User, Img, FriendConnect, Thread, Comment, }
