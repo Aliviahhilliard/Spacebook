@@ -18,14 +18,10 @@ a {
 body {
   background-image: url('/img/casey-horner-RmoWqDCqN2E-unsplash.jpg');
   background-size: cover;
-  /* Scale the image to cover the entire viewport */
   background-repeat: no-repeat;
   background-attachment: fixed;
-  /* Keep the background fixed while scrolling */
   background-color: #000;
-  /* Set a base background color */
-
-  /* You can add more styles here to adjust the background appearance */
+  color: #00ff00;
 }
 
 /* Header styling */
