@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Thread } = require('../../models');
+const { User, Thread, Image } = require('../../models');
 const withAuth = require('../../utils/auth'); // Import withAuth
 
 router.post('/', async (req, res) => {
@@ -52,7 +52,14 @@ router.post('/login', async (req, res) => {
 router.get('/profile', withAuth, async (req, res) => {
   try {
     const userData = await User.findByPk(req.session.user_id, {
-      include: [{ model: Thread }], // Include associated threads
+      include: [
+        { 
+          model: Thread 
+        },
+        {
+          model: Image,
+        },
+      ], // Include associated threads
     });
 
     const user = userData.get({ plain: true });
