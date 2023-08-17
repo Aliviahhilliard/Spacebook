@@ -10,9 +10,9 @@ Alien Social Network: Introducing an extraterrestrial social network platform wh
 
 ## User Story
 
-AS AN alien user
-I WANT an intergalactic social media app with an english translator built in
-SO THAT I can post pictures, stories, and engage through likes, comments, and shares
+* AS AN alien user
+* I WANT an intergalactic social media app with an english translator built in
+* SO THAT I can post pictures, stories, and engage through likes, comments, and shares
 
 ## Acceptance Criteria
 
