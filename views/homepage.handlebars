@@ -2,6 +2,7 @@
 {{#if logged_in}}
 <h2>Welcome to Your Homepage</h2>
 
+{{!-- Check if homepageData has friends and threads --}}
 {{#if homepageData.friends.length}}
 <h3>Your Friends' Threads</h3>
 <ul>
@@ -27,20 +28,7 @@
 {{else}}
 <p>You have no friends or your friends have no threads.</p>
 {{/if}}
-{{!-- Check if homepageData has friends and threads --}}
-{{#if homepageData.friends.length}}
-<h2>My Friends' Threads</h2>
-{{!-- Loop through each friend's threads --}}
-{{#each homepageData.friends as |friend|}}
-<h3>{{friend.username}}</h3>
-{{#each friend.threads as |thread|}}
-<div>
-  <p>Thread Title: {{thread.title}}</p>
-  <p>Posted by: {{thread.user.username}}</p>
-</div>
-{{/each}}
-{{/each}}
+
 {{else}}
-<p>No friend's threads to display.</p>
-{{/if}}
+<p>You are not logged in.</p>
 {{/if}}
