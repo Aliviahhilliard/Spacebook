@@ -1,8 +1,14 @@
 <main class="container">
     <h2>My Friends</h2>
-    <ul>
+    <ul class="friends-list">
         {{#each user.friends}}
-        <li>{{username}}</li>
+        <li class="friend-item">
+            <!-- Display the friend's profile image if it exists -->
+            {{#if profileImage}}
+            <img src="{{ profileImage }}" alt="{{ username }}'s Profile Image" class="friend-profile-image"/>
+            {{/if}}
+            {{ username }}
+        </li>
         {{/each}}
     </ul>
 </main>

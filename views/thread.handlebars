@@ -7,7 +7,11 @@
     <h3 class="font-wingdings">Comments</h3>
     <ul class="comment-list">
         {{#each comments}}
-        <li class="font-wingdings">{{user.username}}: {{content}}
+        <li class="font-wingdings">
+            {{#if user.profileImage}}
+            <img src="{{user.profileImage}}" alt="{{user.username}}'s Profile Image" class="comment-profile-image">
+            {{/if}}
+            {{user.username}}: {{content}}
         </li>
         {{/each}}
     </ul>

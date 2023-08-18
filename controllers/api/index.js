@@ -9,7 +9,7 @@ const friendRoutes = require('./friendRoutes'); // Adjust the path if needed
 
 // ...
 
-
+export * from './openai';
 
 router.use('/users', userRoutes);
 router.use('/threads', threadRoutes);

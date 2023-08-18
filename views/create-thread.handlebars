@@ -1,6 +1,14 @@
 <main class="container">
     <div class="form-container">
         <h2 class="form-title">Create Thread</h2>
+        
+        {{#if userProfile.image}} <!-- Assuming userProfile.image is the URL for the user's profile image -->
+        <div class="user-avatar-container">
+            <img src="{{userProfile.image}}" alt="User's Profile Image" class="user-avatar">
+            <span>Posting as {{userProfile.username}}</span>
+        </div>
+        {{/if}}
+
         <form class="create-thread-form">
             <div class="form-group">
                 <label class="form-label" for="thread-title">Thread Title</label>

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import handlebars from 'handlebars'; // Import the Handlebars library
-import './AlienProfiles.css'; // Import the styles specific to this component
+import handlebars from 'handlebars';
+import './AlienProfiles.css';
 
-// Import the Handlebars template
 import alienProfilesTemplate from '../handlebar-templates/alienprofiles.hbs';
 
 const AlienProfiles = () => {

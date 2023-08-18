@@ -1,16 +1,18 @@
 import React from 'react';
-import handlebars from 'handlebars'; // Import the Handlebars library
-import './AlienProfileDetails.css'; // Import the styles specific to this component
+import handlebars from 'handlebars'; 
+import './AlienProfileDetails.css'; 
 
-// Import the Handlebars template
 import alienProfileDetailsTemplate from '../handlebar-templates/alienprofiledetails.hbs';
 
 const AlienProfileDetail = ({ profile }) => {
   // Compile the Handlebars template
   const compiledTemplate = handlebars.compile(alienProfileDetailsTemplate);
 
+  // Ensure the data passed to the template is in the expected format
+  const templateData = { profile };  // This ensures we can access profile properties using profile.propertyName
+
   // Render the compiled Handlebars template
-  const renderedHtml = compiledTemplate(profile);
+  const renderedHtml = compiledTemplate(templateData);
 
   return <div dangerouslySetInnerHTML={{ __html: renderedHtml }} />;
 };
