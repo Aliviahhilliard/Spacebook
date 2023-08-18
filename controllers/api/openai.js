@@ -1,6 +1,13 @@
+const fetch = require('node-fetch');
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Use environment variable
 
-export const generateImage = async (promptText) => {
+/**
+ * Generate an image URL from a given prompt using OpenAI's DALL·E API.
+ * 
+ * @param {string} promptText - The text to generate the image from.
+ * @returns {Promise<string|null>} The generated image URL or null on failure.
+ */
+const generateImage = async (promptText) => {
     const endpoint = "https://api.openai.com/v1/images/generations";
     const requestBody = {
         prompt: promptText,
@@ -18,11 +25,16 @@ export const generateImage = async (promptText) => {
             body: JSON.stringify(requestBody)
         });
 
+        if (!response.ok) {
+            throw new Error(`OpenAI API responded with ${response.status}: ${response.statusText}`);
+        }
+
         const data = await response.json();
 
         if (data && data.data && data.data[0] && data.data[0].url) {
             return data.data[0].url;
         } else {
+            console.warn("Unexpected data structure from OpenAI API:", data);
             return null;
         }
     } catch (error) {
@@ -30,3 +42,5 @@ export const generateImage = async (promptText) => {
         return null;
     }
 };
+
+module.exports = { generateImage };
