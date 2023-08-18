@@ -20,6 +20,9 @@ Img.init(
     data: {
         type: DataTypes.BLOB("long")
     },
+    path: {
+      type: DataTypes.STRING,
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

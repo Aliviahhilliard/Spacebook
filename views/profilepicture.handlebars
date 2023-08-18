@@ -1,0 +1,25 @@
+<body>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8 mt-3">
+          <h4>Select a profile picture!</h4>
+
+          <form
+            class="mt-4"
+            action="/api/images/upload"
+            method="POST"
+            enctype="multipart/form-data"
+          >
+            <div class="form-group">
+              <input
+                type="file"
+                name="file"
+                id="input-files"
+                class="form-control-file border"
+              />
+            </div>
+            <button type="submit" class="btn btn-primary">Select</button>
+          </form>
+        </div>
+      </div>
+  </body>

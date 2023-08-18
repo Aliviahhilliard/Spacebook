@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { User, Thread, Image } = require('../../models');
+const { User, Thread, Img } = require('../../models');
 const withAuth = require('../../utils/auth'); // Import withAuth
 
 router.post('/', async (req, res) => {
@@ -57,7 +57,7 @@ router.get('/profile', withAuth, async (req, res) => {
           model: Thread 
         },
         {
-          model: Image,
+          model: Img,
         },
       ], // Include associated threads
     });

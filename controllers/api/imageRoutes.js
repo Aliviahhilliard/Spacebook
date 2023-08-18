@@ -1,30 +1,34 @@
 const router = require('express').Router();
 const fs = require("fs");
 const { Img } = require("../../models")
+const withAuth = require('../../utils/auth');
+const upload = require('../../utils/upload.js');
 
-router.post('/', async (req, res) => {
+const uploadFiles =  async (req, res) => {
   try {
     console.log(req.file);
 
     if (req.file == undefined) {
       return res.send(`No file selected`);
     }
-//req should include image file
+
     Img.create({
       type: req.file.mimetype,
       name: req.file.originalname,
-      data: fs.readFileSync("../../assets/uploads/" + req.file.filename),
+      data: fs.readFileSync(__basedir + "/public/assets/uploads/" + req.file.filename),
+      path: req.file.path,
       user_id: req.session.user_id,
     }).then((image) => {
-      fs.writeFileSync("../../assets/tmp/" + image.name,image.data);
+      fs.writeFileSync(__basedir + "/public/assets/tmp/" + image.name, image.data);
 
-      return res.send(`File has been uploaded.`);
+      return res.redirect(`/profile`);
     });
-
   } catch (error) {
-    console.log(err);
-    return res.send(`Error: ${err}`);
+    console.log(error);
+    return res.send(`Error when trying upload images: ${error}`);
   }
-});
+};
 
-module.exports = { router };
+router.post('/upload', withAuth, upload.single("file"), uploadFiles);
+
+module.exports = router;

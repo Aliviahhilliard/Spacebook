@@ -1,6 +1,15 @@
 const router = require('express').Router();
-const { Thread, User, Comment, FriendConnect } = require('../models');
+const { Thread, User, Comment, FriendConnect, Img } = require('../models');
 const withAuth = require('../utils/auth');
+
+router.get('/picture', withAuth, async (req, res) => {
+  try{
+    res.render('profilepicture')
+  } catch(err) {
+    res.status(500).json(err)
+  };
+
+});
 
 router.get('/', async (req, res) => {
   try {
@@ -19,11 +28,11 @@ router.get('/', async (req, res) => {
                 {
                   model: User,
                   attributes: ['username'],
-                  include: [
-                    {
-                      model: Image,
-                    },
-                  ],
+                  // include: [
+                  //   {
+                  //     model: Img,
+                  //   },
+                  // ],
                 },
               ],
             },
@@ -78,7 +87,7 @@ router.get('/thread/:id', async (req, res) => {
           attributes: ['username'],
           include: [
             {
-              model: Image,
+              model: Img,
             },
           ],
         },
@@ -88,11 +97,11 @@ router.get('/thread/:id', async (req, res) => {
             {
               model: User,
               attributes: ['username'],
-              include: [
-                {
-                  model: Image,
-                },
-              ],
+              // include: [
+              //   {
+              //     model: Img,
+              //   },
+              // ],
             },
           ],
         },
@@ -120,7 +129,7 @@ router.get('/profile', withAuth, async (req, res) => {
           model: Thread 
         },
         {
-          model: Image
+          model: Img
         },
       ],
     });

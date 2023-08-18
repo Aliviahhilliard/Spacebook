@@ -1,5 +1,8 @@
 <!-- profile.handlebars -->
 <main class="container">
+    {{#if img}}
+    <img src="../../{{img.path}}" alt="{{username}}">
+    {{/if}}
     <h2>Welcome, {{ username}}!</h2>
 
     <h3>Your Threads:</h3>
