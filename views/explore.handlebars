@@ -1,29 +1,38 @@
 <main class="container">
   <h2>Explore</h2>
+
+  <!-- Add a button to toggle all content font -->
+  <button class="toggle-font-button" data-content-type="all">Translate All</button>
+
   <ul>
     {{#each users}}
     <li>
+      <!-- Display User's Profile Picture -->
+      <img src="{{profilePictureUrl}}" alt="{{username}}'s profile picture" class="profile-pic">
 
       <h3 class="font-wingdings">{{username}}</h3>
       <p class="font-wingdings">{{email}}</p>
       <button class="font-wingdings add-friend-button" data-user-id="{{id}}">Add Friend</button>
     </li>
     {{/each}}
-    <main class="container">
-      <button class="toggle-font-button" data-content-type="all">Translate All</button>
-
-      <ul>
-        {{#each threads}}
-        <li>
-          <a href="/thread/{{id}}">
-            <h3 class="font-wingdings">{{user.username}}'s Post</h3>
-            <p class="font-wingdings">{{content}}</p>
-            <button class="font-wingdings add-friend-button" data-user-id="{{id}}">Add Friend</button>
-          </a>
-        </li>
-        {{/each}}
-      </ul>
-    </main>
   </ul>
+
+  <h3>User Threads</h3>
+  <ul>
+    {{#each threads}}
+    <li>
+      <!-- Display User's Profile Picture for each Post -->
+      <img src="{{user.profilePictureUrl}}" alt="{{user.username}}'s profile picture" class="profile-pic">
+
+      <a href="/thread/{{id}}">
+        <h3 class="font-wingdings">{{user.username}}'s Post</h3>
+        <p class="font-wingdings">{{content}}</p>
+        <button class="font-wingdings add-friend-button" data-user-id="{{id}}">Add Friend</button>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
+
+  <!-- Include the toggle-font script -->
   <script src="/js/toggle-font.js"></script>
 </main>

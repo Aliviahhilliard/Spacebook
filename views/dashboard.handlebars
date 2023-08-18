@@ -2,21 +2,26 @@
   <h2>Alien Profiles</h2>
   <ul>
     {{#each alienProfiles}}
-      <li>{{name}}</li>
+      <li>
+        {{#if this.profileImage}}
+          <img src="{{this.profileImage}}" alt="{{this.name}}'s Profile Image" class="alien-profile-image">
+        {{/if}}
+        {{this.name}}
+      </li>
     {{/each}}
   </ul>
 
   <h2>Intergalactic Travels</h2>
   <ul>
     {{#each intergalacticTravels}}
-      <li>{{destination}}</li>
+      <li>{{this.destination}}</li>
     {{/each}}
   </ul>
 
   <h2>Earth Sightings</h2>
   <ul>
     {{#each earthSightings}}
-      <li>{{location}}</li>
+      <li>{{this.location}}</li>
     {{/each}}
   </ul>
 </div>

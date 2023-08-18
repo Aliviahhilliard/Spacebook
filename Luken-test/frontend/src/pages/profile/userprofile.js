@@ -10,6 +10,7 @@ const UserProfile = () => {
     username: '',
     email: '',
     bio: '',
+    profileImage: '',  // Added profileImage property
     // Add more fields as needed
   });
 
@@ -17,7 +18,15 @@ const UserProfile = () => {
     // Fetch user profile data from the server
     fetch('/api/user/profile')
       .then(response => response.json())
-      .then(data => setUserProfile(data))
+      .then(data => {
+        // Assuming the returned data contains a profileImage property
+        setUserProfile({
+          username: data.username,
+          email: data.email,
+          bio: data.bio,
+          profileImage: data.profileImage  // Updating profileImage from the fetched data
+        });
+      })
       .catch(error => console.error('Error fetching user profile:', error));
   }, []);
 
@@ -31,4 +40,3 @@ const UserProfile = () => {
 };
 
 export default UserProfile;
-

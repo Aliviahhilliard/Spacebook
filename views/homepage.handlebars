@@ -1,4 +1,3 @@
-<!-- homepage.handlebars -->
 {{#if logged_in}}
 <h2>Welcome to Your Homepage</h2>
 
@@ -8,11 +7,17 @@
 <ul>
   {{#each homepageData.friends as |friend|}}
   <li>
+    {{#if friend.profileImage}}
+    <img src="{{friend.profileImage}}" alt="{{friend.username}}'s Profile Image" class="profile-image">
+    {{/if}}
     <h4>{{friend.username}}</h4>
     {{#if friend.threads.length}}
     <ul>
       {{#each friend.threads as |thread|}}
       <li>
+        {{#if thread.author.profileImage}} <!-- Assuming each thread has an author with a profileImage -->
+        <img src="{{thread.author.profileImage}}" alt="{{thread.author.username}}'s Profile Image" class="thread-author-image">
+        {{/if}}
         <h5>{{thread.title}}</h5>
         <p>{{thread.content}}</p>
         <a href="/thread/{{thread.id}}">View Thread</a>

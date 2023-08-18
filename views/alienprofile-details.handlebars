@@ -4,5 +4,10 @@
   <p>Species: {{ species }}</p>
   <p>Home Planet: {{ homePlanet }}</p>
   <p>Interests: {{ interests.join ', ' }}</p>
-  <!-- Display more profile details -->
+{{#if profile.profileImage}}
+<img src="{{profile.profileImage}}" alt="Alien Profile Picture" class="alien-profile-image" />
+{{else}}
+<p>No profile image available</p>
+{{/if}}
+
 </div>
