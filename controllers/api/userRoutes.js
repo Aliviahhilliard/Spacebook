@@ -84,6 +84,64 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+// Get all users
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.findAll();
+    res.json(users);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
+// Get user by ID
+router.get('/:id', async (req, res) => {
+  try {
+    const user = await User.findByPk(req.params.id, {
+      include: [Thread, Image],
+    });
+    if (!user) {
+      res.status(404).json({ message: 'No user found with this id!' });
+      return;
+    }
+    res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Update user by ID
+router.put('/:id', async (req, res) => {
+  try {
+    const user = await User.update(req.body, {
+      where: { id: req.params.id },
+    });
+
+    if (!user) {
+      res.status(404).json({ message: 'No user found with this id!' });
+      return;
+    }
+    res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Delete user by ID
+router.delete('/:id', async (req, res) => {
+  try {
+    const user = await User.destroy({
+      where: { id: req.params.id },
+    });
+
+    if (!user) {
+      res.status(404).json({ message: 'No user found with this id!' });
+      return;
+    }
+    res.json(user);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;
