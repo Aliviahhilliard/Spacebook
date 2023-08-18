@@ -8,8 +8,8 @@
     <ul class="comment-list">
         {{#each comments}}
         <li class="font-wingdings">
-            {{#if user.profileImage}}
-            <img src="{{user.profileImage}}" alt="{{user.username}}'s Profile Image" class="comment-profile-image">
+            {{#if user.image}}
+            <img src="{{user.image}}" alt="{{user.username}}'s Profile Image" class="comment-profile-image">
             {{/if}}
             {{user.username}}: {{content}}
         </li>

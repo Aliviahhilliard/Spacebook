@@ -1,10 +1,43 @@
 const router = require('express').Router();
-const { User, Thread, Image } = require('../../models');
+const { User, Thread } = require('../../models');
+const multer = require('multer');
 const withAuth = require('../../utils/auth'); // Import withAuth
 
-router.post('/', async (req, res) => {
+const storage = multer.diskStorage({
+  destination: function(req, file, cb) {
+    cb(null, './public/uploaded_images/');
+  },
+  filename: function(req, file, cb) {
+    cb(null, `${Date.now()}-spacebook-${file.originalname}`);
+  }
+});
+
+const fileFilter = (req, file, cb) => {
+  // reject a file
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(new Error('Cannot accept file with that extension. Please only upload jpeg and png files.'), false);
+  }
+};
+
+const upload = multer({
+  storage: storage,
+  limits: {
+    fileSize: 1024 * 1024 * 5
+  },
+  fileFilter: fileFilter
+});
+
+router.post('/', upload.single('image'), async (req, res) => {
   try {
-    const userData = await User.create(req.body);
+    imageUrl = req.file.path.substring(6);
+    const userData = await User.create({
+      username: req.body.name,
+      email: req.body.email,
+      password: req.body.password,
+      image: imageUrl
+    });
 
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -56,21 +89,21 @@ router.get('/profile', withAuth, async (req, res) => {
         { 
           model: Thread 
         },
-        {
-          model: Image,
-        },
       ], // Include associated threads
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', { layout: 'main', user });
+    res.render('profile', {
+       user,
+       logged_in: true
+      });
   } catch (err) {
     res.status(500).json(err);
   }
 });
 
-router.get('/profile/create-thread', withAuth, (req, res) => {
+router.get('/create-thread', withAuth, (req, res) => {
   res.render('create-thread', { layout: 'main' }); // Render the create-thread form
 });
 
