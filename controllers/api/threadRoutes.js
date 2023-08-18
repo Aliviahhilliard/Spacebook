@@ -73,5 +73,34 @@ router.get('/:id', async (req, res) => {
   }
 });
 
+// Get all threads
+router.get('/', async (req, res) => {
+  try {
+    const threadData = await Thread.findAll({
+      include: [
+        { model: User },
+        { model: Comment, include: { model: User } }
+      ]
+    });
+    res.json(threadData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// Create a comment on a specific thread
+router.post('/:id/comments', withAuth, async (req, res) => {
+  try {
+    const newComment = await Comment.create({
+      content: req.body.content,
+      user_id: req.session.user_id,
+      thread_id: req.params.id,
+    });
+
+    res.status(200).json(newComment);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 module.exports = router;
