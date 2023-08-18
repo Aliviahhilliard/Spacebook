@@ -13,7 +13,7 @@ const signupFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/picture');
+      document.location.replace('/profile');
     } else {
       alert('Sign up failed. Please try again.');
     }

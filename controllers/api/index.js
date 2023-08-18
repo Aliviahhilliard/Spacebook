@@ -9,6 +9,7 @@ const friendRoutes = require('./friendRoutes');
 
 const openaiExports = require('./openai');
 
+router.use('/openai', openaiExports);
 router.use('/users', userRoutes);
 router.use('/threads', threadRoutes);
 router.use('/comments', commentRoutes);
@@ -17,7 +18,4 @@ router.use('/explore', exploreRoutes);
 router.use('/images', imageRoutes);
 router.use('/friends', friendRoutes);
 
-module.exports = {
-    router,
-    ...openaiExports
-};
+module.exports = router;

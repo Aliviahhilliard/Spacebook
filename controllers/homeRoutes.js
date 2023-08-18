@@ -2,6 +2,11 @@ const router = require('express').Router();
 const { Thread, User, Comment, FriendConnect, Img } = require('../models');
 const withAuth = require('../utils/auth');
 
+router.get('/test', withAuth, (req, res) => {
+
+  res.render('editprofile');
+});
+
 router.get('/picture', withAuth, async (req, res) => {
   try{
     res.render('profilepicture')
