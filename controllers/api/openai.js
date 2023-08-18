@@ -1,4 +1,6 @@
+const router = require('express').Router();
 const fetch = require('node-fetch');
+const withAuth = require('../../utils/auth');
 const OPENAI_API_KEY = process.env.OPENAI_API_KEY; // Use environment variable
 
 /**
@@ -43,4 +45,8 @@ const generateImage = async (promptText) => {
     }
 };
 
-module.exports = { generateImage };
+router.get('/', withAuth, async (req, res) => {
+    generateImage
+});
+
+module.exports =  router;

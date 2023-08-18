@@ -2,6 +2,20 @@ const router = require('express').Router();
 const { Thread, User, Comment, FriendConnect } = require('../models');
 const withAuth = require('../utils/auth');
 
+router.get('/test', withAuth, (req, res) => {
+
+  res.render('editprofile');
+});
+
+router.get('/picture', withAuth, async (req, res) => {
+  try{
+    res.render('profilepicture')
+  } catch(err) {
+    res.status(500).json(err)
+  };
+
+});
+
 router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll({
