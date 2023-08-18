@@ -1,32 +1,56 @@
 <div class="edit-profile-container">
-  <header>
-    <h1>Edit Your Profile</h1>
-  </header>
-  <form>
-    <label for="username">Username</label>
-    <input
-      type="text"
-      id="username"
-      name="username"
-      value="{{ userProfile.username }}"
-    />
+    <header>
+        <h1>Edit Your Profile</h1>
+    </header>
+    <form>
+        <label for="username">Username</label>
+        <input
+            type="text"
+            id="username"
+            name="username"
+            value="{{ userProfile.username }}"
+        />
 
-    <label for="email">Email</label>
-    <input
-      type="email"
-      id="email"
-      name="email"
-      value="{{ userProfile.email }}"
-    />
+        <label for="email">Email</label>
+        <input
+            type="email"
+            id="email"
+            name="email"
+            value="{{ userProfile.email }}"
+        />
 
-    <label for="bio">Bio</label>
-    <textarea
-      id="bio"
-      name="bio"
-    >{{ userProfile.bio }}</textarea>
+        <label for="bio">Bio</label>
+        <textarea
+            id="bio"
+            name="bio"
+        >{{ userProfile.bio }}</textarea>
 
-    <!-- Add more input fields for other profile data -->
-    
-    <button class="save-button" type="submit">Save Changes</button>
-  </form>
+        <label for="profile-picture-description">Profile Picture Description</label>
+        <input
+            type="text"
+            id="profile-picture-description"
+        />
+
+        <button type="button" id="generate-picture-button">Generate Profile Picture</button>
+      
+        <div id="generated-image-container">
+            {{#if generatedImageUrl}}
+                <img src="{{ generatedImageUrl }}" alt="Generated Profile" />
+                <!-- Button to save the generated image as profile picture -->
+                <button type="button" id="save-generated-picture-button">Save as Profile Picture</button>
+            {{/if}}
+        </div>
+
+        <!-- Profile image display -->
+        <div class="current-profile-picture">
+            <label>Current Profile Picture:</label>
+            {{#if userProfile.profileImage}}
+                <img src="{{ userProfile.profileImage }}" alt="Current Profile" />
+            {{else}}
+                <p>No profile picture set.</p>
+            {{/if}}
+        </div>
+
+        <button class="save-button" type="submit">Save Profile Changes</button>
+    </form>
 </div>

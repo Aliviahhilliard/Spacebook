@@ -50,4 +50,9 @@
   }
   
   /* Additional styling for AlienProfileDetail.js can be added here */
-  
+  .alien-profile-image {
+    width: 100px;  
+    height: 100px;  
+    border-radius: 50%;  
+    object-fit: cover;  
+}

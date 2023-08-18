@@ -1,8 +1,15 @@
 <div class="alien-profile">
   <img src="{{ avatar }}" alt="{{ name }} Avatar" />
-  <h2>{{ name }}</h2>
-  <p>Species: {{ species }}</p>
-  <p>Home Planet: {{ homePlanet }}</p>
-  <p>Interests: {{ interests.join ', ' }}</p>
-  <!-- Display more profile details -->
+
+  <!-- Add a button to toggle all content font -->
+  <button class="toggle-font-button" data-content-type="all">Translate All</button>
+
+  <h2 class="font-wingdings">{{ name }}</h2>
+  <p class="font-wingdings">Species: {{ species }}</p>
+  <p class="font-wingdings">Home Planet: {{ homePlanet }}</p>
+  <p class="font-wingdings">Interests: {{ interests.join ', ' }}</p>
+  <!-- Display more profile details with the font-wingdings class -->
+
+  <!-- You'll also want to ensure you're including the relevant toggle script, if not already globally loaded -->
+  <script src="/js/toggle-font.js"></script>
 </div>

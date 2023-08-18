@@ -19,6 +19,11 @@ router.get('/', async (req, res) => {
                 {
                   model: User,
                   attributes: ['username'],
+                  include: [
+                    {
+                      model: Image,
+                    },
+                  ],
                 },
               ],
             },
@@ -71,6 +76,11 @@ router.get('/thread/:id', async (req, res) => {
         {
           model: User,
           attributes: ['username'],
+          include: [
+            {
+              model: Image,
+            },
+          ],
         },
         {
           model: Comment,
@@ -78,6 +88,11 @@ router.get('/thread/:id', async (req, res) => {
             {
               model: User,
               attributes: ['username'],
+              include: [
+                {
+                  model: Image,
+                },
+              ],
             },
           ],
         },
@@ -100,7 +115,14 @@ router.get('/profile', withAuth, async (req, res) => {
 
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Thread }],
+      include: [
+        { 
+          model: Thread 
+        },
+        {
+          model: Image
+        },
+      ],
     });
 
     const user = userData.get({ plain: true });
