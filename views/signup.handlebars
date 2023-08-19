@@ -4,7 +4,7 @@
 <main class="container">
     <div class="form-container">
         <h2 class="form-title">Sign Up</h2>
-        <form class="signup-form">
+        <form id="signup-form">
             <div class="form-group">
                 <label class="form-label" for="signup-username">Username</label>
                 <input class="form-input" type="text" id="signup-username" name="name" required>
@@ -16,6 +16,11 @@
             <div class="form-group">
                 <label class="form-label" for="signup-password">Password</label>
                 <input class="form-input" type="password" id="signup-password" name="password" required>
+            </div>
+            <div class="form-group">
+                <label class="form-label" for="signup-image">Profile Image</label>
+                <input name="image" type="file" accept="image/jpeg, image/png, image/jpg" id="image" required>
+                <img id="image-preview">
             </div>
             <button class="form-button button-primary" type="submit">Sign Up</button>
         </form>

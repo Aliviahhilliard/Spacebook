@@ -2,31 +2,6 @@ const router = require('express').Router();
 const { FriendConnect, User } = require('../../models');
 const withAuth = require('../../utils/auth');
 
-
-router.get('/', withAuth, async (req, res) => {
-    try {
-        // Fetch the user's friends along with their details
-        const userData = await User.findByPk(req.session.user_id, {
-            include: [
-                {
-                    model: User,
-                    as: 'friends',
-                },
-            ],
-        });
-
-        const user = userData.get({ plain: true });
-
-        res.render('friends', {
-            layout: 'main',
-            user,
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
-});
-
-
 // Add a friend
 router.post('/:id', withAuth, async (req, res) => {
     try {

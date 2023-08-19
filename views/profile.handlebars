@@ -1,23 +1,26 @@
 <!-- profile.handlebars -->
 <main class="container">
     <header class="profile-header">
-        <img src="{{userProfile.profileImage}}" alt="Profile Image" class="profile-image" />
-        <h2>Welcome, {{ userProfile.username }}!</h2>
+        <img src='{{user.image}}' alt="{{user.username}}" class="profile-image" />
+        <h2>Welcome, {{ user.username }}!</h2>
     </header>
-
+{{#if user.threads}}
     <h3>Your Threads:</h3>
     <ul>
-        {{#each threads}}
+        {{#each user.threads as |thread|}}
         <li>
-            <h4 class="font-wingdings">{{title}}</h4>
-            <p class="font-wingdings">{{content}}</p>
-            <a href="/thread/{{id}}" class="btn btn-primary">View Thread</a>
+            <h4 class="font-wingdings">{{thread.title}}</h4>
+            <p class="font-wingdings">{{thread.content}}</p>
+            <a href="/thread/{{thread.id}}" class="btn btn-primary">View Thread</a>
         </li>
         {{/each}}
     </ul>
+{{else}}
+<p>you don't have anything yet!</p>
+{{/if}}
 </main>
 
-<a href="/api/users/profile/create-thread">Create Thread</a>
+<a href="/create-thread">Create Thread</a>
 
 <style>
     .profile-header {

@@ -2,6 +2,20 @@ const router = require('express').Router();
 const { Thread, User, Comment, FriendConnect } = require('../models');
 const withAuth = require('../utils/auth');
 
+router.get('/test', withAuth, (req, res) => {
+
+  res.render('editprofile');
+});
+
+router.get('/picture', withAuth, async (req, res) => {
+  try{
+    res.render('profilepicture')
+  } catch(err) {
+    res.status(500).json(err)
+  };
+
+});
+
 router.get('/', async (req, res) => {
   try {
     const userData = await User.findAll({
@@ -19,11 +33,6 @@ router.get('/', async (req, res) => {
                 {
                   model: User,
                   attributes: ['username'],
-                  include: [
-                    {
-                      model: Image,
-                    },
-                  ],
                 },
               ],
             },
@@ -43,6 +52,32 @@ router.get('/', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/explore', async (req, res) => {
+  try {
+      const threadData = await Thread.findAll({
+          include: [
+              {
+                  model: User,
+                  attributes: ['username'],
+              },
+          ],
+      });
+
+      const threads = threadData.map((thread) => thread.get({ plain: true }));
+
+      res.render('explore', {
+          threads, // Make sure the variable name matches the one used in the template
+          logged_in: req.session.logged_in
+      });
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+router.get('/create-thread', withAuth, (req, res) => {
+  res.render('create-thread', { layout: 'main' }); // Render the create-thread form
 });
 
 // router.get('/explore', async (req, res) => {
@@ -76,11 +111,6 @@ router.get('/thread/:id', async (req, res) => {
         {
           model: User,
           attributes: ['username'],
-          include: [
-            {
-              model: Image,
-            },
-          ],
         },
         {
           model: Comment,
@@ -88,11 +118,6 @@ router.get('/thread/:id', async (req, res) => {
             {
               model: User,
               attributes: ['username'],
-              include: [
-                {
-                  model: Image,
-                },
-              ],
             },
           ],
         },
@@ -119,20 +144,40 @@ router.get('/profile', withAuth, async (req, res) => {
         { 
           model: Thread 
         },
-        {
-          model: Image
-        },
       ],
     });
 
     const user = userData.get({ plain: true });
 
     res.render('profile', {
-      ...user,
+      user,
       logged_in: true
     });
   } catch (err) {
     res.status(500).json(err);
+  }
+});
+
+router.get('/friends', withAuth, async (req, res) => {
+  try {
+      // Fetch the user's friends along with their details
+      const userData = await User.findByPk(req.session.user_id, {
+          include: [
+              {
+                  model: User,
+                  as: 'friends',
+              },
+          ],
+      });
+
+      const user = userData.get({ plain: true });
+
+      res.render('friends', {
+          layout: 'main',
+          user,
+      });
+  } catch (err) {
+      res.status(500).json(err);
   }
 });
 
@@ -144,6 +189,10 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/signup', (req, res) => {
+  res.render('signup', { layout: 'main' });
 });
 
 module.exports = router;

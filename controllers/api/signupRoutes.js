@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
-router.get('/', (req, res) => {
+router.get('/signup', (req, res) => {
     res.render('signup', { layout: 'main' });
 });
 

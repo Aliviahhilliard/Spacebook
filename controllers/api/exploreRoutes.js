@@ -15,7 +15,7 @@ const { Thread, User } = require('../../models');
 //         res.status(500).json(err);
 //     }
 // });
-router.get('/', async (req, res) => {
+router.get('/explore', async (req, res) => {
     try {
         const threadData = await Thread.findAll({
             include: [
