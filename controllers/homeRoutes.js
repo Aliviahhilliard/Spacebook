@@ -2,65 +2,13 @@ const router = require('express').Router();
 const { Thread, User, Comment, FriendConnect } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/test', withAuth, (req, res) => {
-
-  res.render('editprofile');
-});
-
-router.get('/picture', withAuth, async (req, res) => {
-  try{
-    res.render('profilepicture')
-  } catch(err) {
-    res.status(500).json(err)
-  };
-
-});
-
-router.get('/', async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      where: {
-        id: 1
-      },
-      include: [
-        {
-          model: User,
-          as: 'friends',
-          include: [
-            {
-              model: Thread,
-              include: [
-                {
-                  model: User,
-                  attributes: ['username'],
-                },
-              ],
-            },
-          ],
-        },
-      ],
-    });
-
-    const homepageData = userData.map((thread) => thread.get({ plain: true }));
-
-    //handlebars {{if homepageData.friends.threads.length}}
-    // {{each homepageData.friends.threads as |thread|}} then reference post for display data
-    res.render('homepage', {
-      homepageData,
-      logged_in: req.session.logged_in
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
-
-router.get('/explore', async (req, res) => {
+router.get('/', withAuth, async (req, res) => {
   try {
       const threadData = await Thread.findAll({
           include: [
               {
-                  model: User,
-                  attributes: ['username'],
+                model: User,
+                attributes: { exclude: ['password'] },
               },
           ],
       });
@@ -71,6 +19,8 @@ router.get('/explore', async (req, res) => {
           threads, // Make sure the variable name matches the one used in the template
           logged_in: req.session.logged_in
       });
+
+      // res.status(200).json(threads);
   } catch (err) {
       res.status(500).json(err);
   }
@@ -151,7 +101,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       user,
-      logged_in: true
+      logged_in: req.session.logged_in,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -173,8 +123,8 @@ router.get('/friends', withAuth, async (req, res) => {
       const user = userData.get({ plain: true });
 
       res.render('friends', {
-          layout: 'main',
           user,
+          logged_in: req.session.logged_in,
       });
   } catch (err) {
       res.status(500).json(err);
