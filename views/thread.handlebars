@@ -1,16 +1,16 @@
 <main class="container">
-    <img src='/img/photo{{user.id}}.jpg' alt="{{user.username}}" class="profile-image" />
+    <img src='/img/photo{{user_id}}.jpg' alt="{{user.username}}" class="profile-image" />
     <h2>{{ user.username }}</h2>
     <button class="toggle-font-button" data-content-type="all">Translate All</button>
-    <h2 class="font-wingdings font-toggle">{{title}}</h2>
+    <h2 class="font-wingdings font-toggle mt-5">{{title}}</h2>
     <p class="font-wingdings font-toggle">{{content}}</p>
 
 
-    <h3 id="thread_threads" class="font-wingdings font-toggle">Comments</h3>
+    <h3 class="font-wingdings font-toggle mt-5">Comments</h3>
     <ul id="comments" class="comment-list">
         {{#each comments}}
         <li class="font-wingdings font-toggle">
-            <img src='/img/photo{{user.id}}.jpg' alt="{{user.username}}'s Profile Image" class="comment-profile-image">
+            <img src='/img/photo{{user_id}}.jpg' alt="{{user.username}}'s Profile Image" class="comment-profile-image">
             {{user.username}}: {{content}}
         </li>
         {{/each}}
