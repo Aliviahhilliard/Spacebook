@@ -1,16 +1,19 @@
 <!-- profile.handlebars -->
 <main class="container">
     <header class="profile-header">
-        <img src='{{user.image}}' alt="{{user.username}}" class="profile-image" />
+        <img src='/img/photo{{user.id}}.jpg' alt="{{user.username}}" class="profile-image" />
         <h2>Welcome, {{ user.username }}!</h2>
     </header>
+         <!-- Add a button to toggle all content font -->
+            <button class="toggle-font-button" data-content-type="all">Translate All</button> 
+
 {{#if user.threads}}
-    <h3>Your Threads:</h3>
-    <ul>
+    <h3 id="profile_threads">Your Threads:</h3>
+    <ul id="threads">
         {{#each user.threads as |thread|}}
         <li>
-            <h4 class="font-wingdings">{{thread.title}}</h4>
-            <p class="font-wingdings">{{thread.content}}</p>
+            <h4 class="font-wingdings font-toggle">{{thread.title}}</h4>
+            <p class="font-wingdings font-toggle">{{thread.content}}</p>
             <a href="/thread/{{thread.id}}" class="btn btn-primary">View Thread</a>
         </li>
         {{/each}}
@@ -18,6 +21,7 @@
 {{else}}
 <p>you don't have anything yet!</p>
 {{/if}}
+  <script src="/js/toggle-font.js"></script>
 </main>
 
 <a href="/create-thread">Create Thread</a>

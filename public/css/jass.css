@@ -1736,7 +1736,7 @@ form [type='radio'] {
     padding: 10px;
     background-color: #34a334;
 }
-#explore_threads {
+#explore_threads,#profile_threads {
   margin-top: 30px;
 }
 #threads li {
