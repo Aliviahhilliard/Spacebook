@@ -6,9 +6,9 @@ Alien Social Network: Introducing an extraterrestrial social network platform wh
 
 ![Project Screenshot](public/img/Spacebook_screenshot.png)
 
-[Link to Spacebook](https://spacebook-socialmedia-app-9c15fa4095df.herokuapp.com/login"Spacebook")
+[Link to Spacebook](https://spacebook-socialmedia-app-9c15fa4095df.herokuapp.com/login)
 
-[Link to Spacebook Repository](https://github.com/Aliviahhilliard/Spacebook"SpacebookRepo")
+[Link to Spacebook Repository](https://github.com/Aliviahhilliard/Spacebook)
 
 ## User Story
 
