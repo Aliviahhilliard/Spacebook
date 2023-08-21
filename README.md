@@ -10,6 +10,10 @@ Alien Social Network: Introducing an extraterrestrial social network platform wh
 
 [Link to Spacebook Repository](https://github.com/Aliviahhilliard/Spacebook)
 
+### Demo 
+
+![Main](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXNoamR0cHhpaHIxbnhoeXRsbWsxMmt1bHZqOGQzbGIzeXU0YTJ0MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KeXQMg71inhJaZSi3Q/giphy-downsized-large.gif)
+
 ## User Story
 
 * AS AN alien user
