@@ -1703,3 +1703,36 @@ form [type='radio'] {
     align-content: center;
   }
 }
+/* login screen */
+#login-email {
+  border: solid 1px #45b845;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+
+#login-password {
+  border: solid 1px #45b845;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+}
+#login-box {
+  border-radius: 10px;
+    border: 1px solid;
+    width: 350px;
+    box-shadow: 0px 0px 30px green;
+    background-color: rgba(0,0,0,0.5);
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: calc(50vh - 150px);
+}
+#login-box button {
+  border: none;
+    border-radius: 10px;
+    font-size: larger;
+    width: 100%;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #34a334;
+}
