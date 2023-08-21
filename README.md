@@ -1,4 +1,4 @@
-# Spacebook
+# **Spacebook**
 
 ## Description
 
@@ -6,8 +6,9 @@ Alien Social Network: Introducing an extraterrestrial social network platform wh
 
 ![Project Screenshot](public/img/Spacebook_screenshot.png)
 
-[Link to Deployed Application on Heroku](https://spacebook-socialmedia-app-9c15fa4095df.herokuapp.com/login)
-[Link to Repository](https://github.com/Aliviahhilliard/Spacebook)
+[Link to Spacebook](https://spacebook-socialmedia-app-9c15fa4095df.herokuapp.com/login"Spacebook")
+
+[Link to Spacebook Repository](https://github.com/Aliviahhilliard/Spacebook "Spacebook Repository")
 
 ## User Story
 
@@ -43,14 +44,12 @@ Alien Social Network: Introducing an extraterrestrial social network platform wh
 ## Features
 
 * WHEN a user signs up,
-* THEN they can create and personalize their profile.
-* WHEN a user selects their profile picture,
-* THEN a picture generates for them.
+* THEN they can create their profile with a randonly added profile picture.
 * WHEN a user adds a friend,
 * THEN they can view and engage with that friend's content.
 * WHEN a user posts content,
 * THEN it appears on their timeline for friends to interact with.
-* WHEN a user clicks on the translate button,
+* WHEN a user clicks on the translate all button,
 * THEN the text will translate from alien text to English and vice versa.
 
 ## Installation
@@ -79,3 +78,6 @@ This project uses the [MIT](https://choosealicense.com/licenses/mit/) license.
 ---
 
 Thank you for checking out our project! Feel free to contact us for any feedback or questions.
+
+---
+---
