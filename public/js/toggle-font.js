@@ -21,9 +21,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const toggleFontButton = document.querySelector('.toggle-font-button');
 
     toggleFontButton.addEventListener('click', () => {
-        const contentElements = document.querySelectorAll('.font-wingdings');
+        const contentElements = document.querySelectorAll('.font-toggle');
         contentElements.forEach((element) => {
-            element.classList.toggle('font-default');
+            //element.classList.toggle('font-default');
             element.classList.toggle('font-wingdings');
         });
     });
