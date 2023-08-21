@@ -1739,3 +1739,6 @@ form [type='radio'] {
 #threads li, #comments li {
   margin-bottom: 30px;
 }
+ul {
+  list-style-type: none;
+}

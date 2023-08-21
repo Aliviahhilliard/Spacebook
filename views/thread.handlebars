@@ -10,8 +10,8 @@
     <ul id="comments" class="comment-list">
         {{#each comments}}
         <li class="font-wingdings font-toggle">
-            <img src='/img/photo{{user_id}}.jpg' alt="{{user.username}}'s Profile Image" class="comment-profile-image">
-            {{user.username}}: {{content}}
+            <img src='/img/photo{{user_id}}.jpg' alt="{{user.username}}'s Profile Image" class="profile-image">
+            <strong>{{user.username}}:</strong> {{content}}
         </li>
         {{/each}}
     </ul>
