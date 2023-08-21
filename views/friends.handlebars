@@ -1,11 +1,10 @@
 <main class="container">
     <h2>My Friends</h2>
-    {{ json_encode(user.friends) }}<hr>
         <ul class="friends-list">
         {{#each user.friends}}
         <li class="friend-item">
             <!-- Display the friend's profile image if it exists -->
-            <img src="/img/photo{{ friend_id }}.jpg" alt="{{ username }}'s Profile Image" class="friend-profile-image"/>
+            <img src="/img/photo{{ id }}.jpg" alt="{{ username }}'s Profile Image" class="friend-profile-image"/>
             {{ username }}
         </li>
         {{/each}}
