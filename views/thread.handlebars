@@ -1,25 +1,25 @@
 <main class="container">
-    <h2 class="font-wingdings">{{title}}</h2>
-    <p class="font-wingdings">{{content}}</p>
-
+    <img src='/img/photo{{user.id}}.jpg' alt="{{user.username}}" class="profile-image" />
+    <h2>{{ user.username }}</h2>
     <button class="toggle-font-button" data-content-type="all">Translate All</button>
+    <h2 class="font-wingdings font-toggle">{{title}}</h2>
+    <p class="font-wingdings font-toggle">{{content}}</p>
 
-    <h3 class="font-wingdings">Comments</h3>
-    <ul class="comment-list">
+
+    <h3 id="thread_threads" class="font-wingdings font-toggle">Comments</h3>
+    <ul id="comments" class="comment-list">
         {{#each comments}}
-        <li class="font-wingdings">
-            {{#if user.image}}
-            <img src="{{user.image}}" alt="{{user.username}}'s Profile Image" class="comment-profile-image">
-            {{/if}}
+        <li class="font-wingdings font-toggle">
+            <img src='/img/photo{{user.id}}.jpg' alt="{{user.username}}'s Profile Image" class="comment-profile-image">
             {{user.username}}: {{content}}
         </li>
         {{/each}}
     </ul>
 
     <form class="comment-form">
-        <textarea class="comment-input" name="content" rows="4" placeholder="Add a comment"></textarea>
+        <textarea class="comment-input" name="content" rows="4" cols="50" placeholder="Add a comment"></textarea>
         <input type="hidden" name="thread_id" value="{{id}}">
-        <button class="comment-button" type="submit">Submit Comment</button>
+        <div><button class="comment-button" type="submit">Submit Comment</button></div>
     </form>
 </main>
 
