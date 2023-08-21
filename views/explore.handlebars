@@ -22,7 +22,7 @@
     {{#each threads as |thread|}}
     <li>
       <!-- Display User's Profile Picture for each Post -->
-      <img src='{{thread.user.image}}' alt="{{thread.user.username}}" class="profile-image">
+      <img src='/img/photo{{thread.user.id}}.jpg' alt="{{thread.user.username}}" class="profile-image">
 
       <a href="/thread/{{thread.id}}">
         <h3 class="font-wingdings font-toggle">{{thread.user.username}}'s Post</h3>
