@@ -4,7 +4,7 @@
 
 Alien Social Network: Introducing an extraterrestrial social network platform where aliens share intergalactic journeys and favorite Earth encounters. Our unique twist: an integrated translator to convert alien languages to English, bridging interstellar communication gaps.
 
-![Project Screenshot](https://github.com/Aliviahhilliard/Spacebook/blob/main/public/img/Spacebook_screenshot.png)
+![Project Screenshot](public/img/Spacebook_screenshot.png)
 
 [Link to Deployed Application on Heroku](https://spacebook-socialmedia-app-9c15fa4095df.herokuapp.com/login)
 
