@@ -1,6 +1,6 @@
 <main class="container">
     <h2>My Friends</h2>
-    {{ JSON.stringify(user) }}<hr>{{ JSON.stringify(user.friends) }}
+    {{ json user }}<hr>{{ json user.friends }}
         <ul class="friends-list">
         {{#each user.friends}}
         <li class="friend-item">
