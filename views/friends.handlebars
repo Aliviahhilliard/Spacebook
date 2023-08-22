@@ -4,8 +4,8 @@
         {{#each user.friends}}
         <li class="friend-item">
             <!-- Display the friend's profile image if it exists -->
-            <img src="/img/photo{{ id }}.jpg" alt="{{ username }}'s Profile Image" class="profile-image"/>
-            {{ username }}
+        <img src='{{thread.user.image}}' alt="{{thread.user.username}}" class="profile-image">             
+        {{ username }}
         </li>
         {{/each}}
     </ul>

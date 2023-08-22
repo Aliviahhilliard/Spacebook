@@ -1735,10 +1735,10 @@ form [type='radio'] {
     margin-top: 20px;
     padding: 10px;
     background-color: #34a334;
-}
-#threads li, #comments li {
-  margin-bottom: 30px;
-}
-ul {
-  list-style-type: none;
-}
+  }
+  #explore_threads {
+    margin-top: 30px;
+  }
+  #threads li {
+    margin-bottom: 30px;
+  }

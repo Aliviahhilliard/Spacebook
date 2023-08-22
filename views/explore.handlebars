@@ -1,4 +1,4 @@
-<main class="container">
+// <main class="container">
   <h2>Explore</h2>
 
   <!-- Add a button to toggle all content font -->
@@ -17,17 +17,17 @@
     {{/each}}
   </ul> --}}
 
-  <h3 class="mt-5">Threads</h3>
-  <ul id="threads">
+  <h3>Threads</h3>
+  <ul>
     {{#each threads as |thread|}}
     <li>
       <!-- Display User's Profile Picture for each Post -->
       <img src='{{thread.user.image}}' alt="{{thread.user.username}}" class="profile-image">
 
       <a href="/thread/{{thread.id}}">
-        <h3 class="font-wingdings font-toggle">{{thread.user.username}}'s Post</h3>
-        <p class="font-wingdings font-toggle">{{thread.content}}</p>
-        <button class="font-wingdings add-friend-button font-toggle" data-user-id="{{thread.user.id}}">Add Friend</button>
+        <h3 class="font-wingdings">{{thread.user.username}}'s Post</h3>
+        <p class="font-wingdings">{{thread.content}}</p>
+        <button class="font-wingdings add-friend-button" data-user-id="{{thread.user.id}}">Add Friend</button>
       </a>
     </li>
     {{/each}}
