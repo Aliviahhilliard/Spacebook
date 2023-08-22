@@ -1,5 +1,5 @@
 <main class="container">
-    <img src='/img/photo{{user_id}}.jpg' alt="{{user.username}}" class="profile-image" />
+    <img src="{{user.image}}" alt="{{user.username}}" class="profile-image" />
     <h2>{{ user.username }}</h2>
     <button class="toggle-font-button" data-content-type="all">Translate All</button>
     <h2 class="font-wingdings font-toggle mt-5">{{title}}</h2>
@@ -10,7 +10,7 @@
     <ul id="comments" class="comment-list">
         {{#each comments}}
         <li class="font-wingdings font-toggle">
-            <img src='/img/photo{{user_id}}.jpg' alt="{{user.username}}'s Profile Image" class="profile-image">
+            <img src="{{user.image}}" alt="{{user.username}}" class="profile-image" />
             <strong>{{user.username}}:</strong> {{content}}
         </li>
         {{/each}}
